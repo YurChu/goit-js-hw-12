@@ -13,11 +13,6 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-function scrollPage() {
-  const { height } = gallery.firstElementChild.getBoundingClientRect();
-  window.scrollBy({ top: height * 2, behavior: 'smooth' });
-}
-
 export function renderGallery(images, isScroll = false) {
   const markup = images
     .map(
@@ -60,9 +55,6 @@ export function renderGallery(images, isScroll = false) {
 
   gallery.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
-  if (isScroll) {
-    // scrollPage();
-  }
 }
 
 export function showLoader() {

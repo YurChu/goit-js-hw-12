@@ -18,6 +18,10 @@
 @import url('./footer.css'); */
 
 .loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
   width: 48px;
   height: 48px;
   border: 5px solid #fff;
@@ -26,7 +30,6 @@
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-
   margin: 32px auto;
   display: block;
 }
