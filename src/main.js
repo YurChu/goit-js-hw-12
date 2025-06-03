@@ -77,9 +77,16 @@ form.addEventListener('submit', async event => {
 loadMoreBtn.addEventListener('click', async () => {
   page += 1;
   showLoader();
+  // --
+  const galleryCard = document.querySelector('.gallery li');
+  const scrollHeight = galleryCard.getBoundingClientRect().height * 2;
+  // --
   try {
     const data = await fetchData(query, page, perPage);
     renderGallery(data.hits, true);
+    //   --
+    scrollBy(0, scrollHeight);
+    //   --
     if (page * perPage >= data.totalHits) {
       hideLoadMoreButton();
       iziToast.show({
