@@ -85,7 +85,10 @@ loadMoreBtn.addEventListener('click', async () => {
     const data = await fetchData(query, page, perPage);
     renderGallery(data.hits, true);
     //   --
-    window.scrollBy(0, scrollHeight);
+    window.scrollBy({
+      top: scrollHeight,
+      behavior: 'smooth',
+    });
     //   --
     if (page * perPage >= data.totalHits) {
       hideLoadMoreButton();
